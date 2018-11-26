@@ -1,4 +1,4 @@
-const Sequelize = require('sequelize');
+const Sequelize = require('sequelize')
 
 const sequelize = new Sequelize('qa', 'monty', 'some_pass', {
   host: 'localhost',
@@ -10,17 +10,17 @@ const sequelize = new Sequelize('qa', 'monty', 'some_pass', {
     min: 0,
     acquire: 30000,
     idle: 10000
-  },
+  }
 
-});
+})
 
 sequelize
   .authenticate()
   .then(() => {
-    console.log('Connection has been established successfully.');
+    console.log('Connection has been established successfully.')
   })
   .catch(err => {
-    console.error('Unable to connect to the database:', err);
-  });
+    console.error('Unable to connect to the database:', err)
+  })
 
-  module.exports=sequelize;
+module.exports = sequelize

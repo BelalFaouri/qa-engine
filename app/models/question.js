@@ -1,26 +1,26 @@
-const Sequelize = require('sequelize');
-var sequelize=require('../db')
+const Sequelize = require('sequelize')
+var sequelize = require('../db')
 var Question = sequelize.define('question', {
 
-    id: {
-        autoIncrement: true,
-        primaryKey: true,
-        type: Sequelize.INTEGER
-    },
+  id: {
+    autoIncrement: true,
+    primaryKey: true,
+    type: Sequelize.INTEGER
+  },
 
-    text: {
-        type: Sequelize.TEXT
-    },
+  text: {
+    type: Sequelize.TEXT
+  },
 
-    username: {
-        type: Sequelize.STRING,
-    },
+  username: {
+    type: Sequelize.STRING
+  },
 
-    answer:{
-      type:Sequelize.STRING
-    }
-});
+  answer: {
+    type: Sequelize.STRING
+  }
+})
 
 Question.sync()
 
-module.exports=Question;
+module.exports = Question

@@ -1,0 +1,22 @@
+<div class="">
+  <h1>Ask a Question Below</h1>
+  <form (submit)= "addQuestion($event)">
+    <div class='input'>
+      <label>Type your question here :</label>
+      <input type="text">
+    </div>
+    <div class='input'>
+      <input type="submit" value='Add'>
+    </div>
+  </form>
+
+  <div class="" *ngFor="let question of questions">
+    <div class="card">
+ <div class="container">
+   <p>{{question.username}} asked:</p>
+   <h4><b>{{question.text}}</b></h4>
+   <p>Anwesered by {{question.answeredBy || "-"}}</p>
+ </div>
+</div>
+  </div>
+</div>

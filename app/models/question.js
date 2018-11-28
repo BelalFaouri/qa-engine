@@ -18,6 +18,9 @@ var Question = sequelize.define('question', {
 
   answer: {
     type: Sequelize.STRING
+  },
+  answeredBy:{
+    type: Sequelize.STRING
   }
 })
 

@@ -12,15 +12,16 @@ exports.signup = function (req, res) {
       if (!user) {
         bcrypt.hash(password, null, null, function (err, hash) {
           User.create({ username: username, password: hash, email: email })
-            .then((user) => console.log(user))
+            .then((user) => {console.log(user)
+            req.session.user = user
+            res.send(200)
+            console.log('Created new User!')
+          })
 
-          req.session.user = user
-          res.redirect('/')
-          console.log('Created new User!')
         })
       } else {
         console.log('User already exists!')
-        res.send('User already exists!')
+        res.send(400)
       }
     })
   }
@@ -51,17 +52,17 @@ exports.login = function (req, res) {
       }
     })
   } else {
-    res.send('<script>window.location.href="/login"</script>')
+    res.send(400)
   }
 }
 
 exports.addQuestion = function (req, res) {
-  console.log(req.body)
+  console.log(req.session)
 
   const { username } = req.session.user
   const { text } = req.body
 
-  Question.create({ text: text, username: username }).then((question) => Question.findAll().then((questions) => res.json(questions)))
+  Question.create({ text: text, username: username}).then((question) => Question.findAll().then((questions) => res.json(questions)))
 }
 
 exports.getAllQuestions = function (req, res) {

@@ -8,7 +8,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
 app.use(session({ secret: 'keyboard cat ninja', resave: true, saveUninitialized: true }))
-
+require('./app/db.js')
 var routes = require('./app/routes/routes.js')(app)
 
 var port = process.env.PORT || 5000

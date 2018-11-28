@@ -8,11 +8,11 @@ module.exports = function (app) {
   app.get('/login', function (req, res) {
     res.send(200)
   })
-  app.post('/login', authController.login)
+  app.post('/api/login', authController.login)
 
 
   app.post('/api/signup', authController.signup)
 
-  app.post('/question', authController.addQuestion)
-  app.get('/questions', authController.getAllQuestions)
+  app.post('/api/question', authController.addQuestion)
+  app.get('/api/questions', authController.getAllQuestions)
 }
